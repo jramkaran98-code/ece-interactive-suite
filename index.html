@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECE Interactive Suite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ECE Interactive Suite</h1>
+
+    <!-- Navigation -->
+    <nav>
+        <button onclick="showSection('converter')">Number Converter</button>
+        <button onclick="showSection('signal')">Signal Visualizer</button>
+        <button onclick="showSection('logic')">Logic Gates</button>
+        <button onclick="showSection('binaryCalc')">Binary Arithmetic</button>
+    </nav>
+
+    <!-- Universal Number Converter -->
+    <section id="converter" class="tool-section">
+        <h2>Universal Number Converter</h2>
+        <input type="text" id="number-input" placeholder="Enter number">
+        <select id="number-type">
+            <option value="binary">Binary</option>
+            <option value="decimal">Decimal</option>
+            <option value="hex">Hexadecimal</option>
+            <option value="octal">Octal</option>
+        </select>
+        <button onclick="convertNumber()">Convert</button>
+        <p id="conversion-output"></p>
+    </section>
+
+    <!-- Signal Visualizer -->
+    <section id="signal" class="tool-section" style="display:none;">
+        <h2>Signal Visualizer</h2>
+        <label>Wave Type:</label>
+        <select id="wave-type">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+        </select>
+        <br>
+        <label>Frequency:</label>
+        <input type="range" id="frequency-slider" min="1" max="10" value="1">
+        <label>Amplitude:</label>
+        <input type="range" id="amplitude-slider" min="10" max="100" value="50">
+        <label>Phase:</label>
+        <input type="range" id="phase-slider" min="0" max="360" value="0">
+        <button id="play-pause">Pause</button>
+        <p>Frequency: <span id="freq-display"></span> | Amplitude: <span id="amp-display"></span> | Phase: <span id="phase-display"></span>°</p>
+        <canvas id="signal-canvas" width="600" height="200"></canvas>
+    </section>
+
+    <!-- Logic Gate Simulator -->
+    <section id="logic" class="tool-section" style="display:none;">
+        <h2>Logic Gate Simulator</h2>
+        <label>Gate:</label>
+        <select id="gate-type">
+            <option value="AND">AND</option>
+            <option value="OR">OR</option>
+            <option value="NOT">NOT</option>
+            <option value="XOR">XOR</option>
+        </select>
+        <br>
+        <label>Input A:</label>
+        <select id="inputA">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <label>Input B:</label>
+        <select id="inputB">
+            <option value="0">0</option>
+            <option value="1">1</option>
+        </select>
+        <button onclick="computeGate()">Compute</button>
+        <p>Output: <span id="gate-output"></span></p>
+    </section>
+
+    <!-- Binary Arithmetic Calculator -->
+    <section id="binaryCalc" class="tool-section" style="display:none;">
+        <h2>Binary Arithmetic Calculator</h2>
+        <input type="text" id="binary1" placeholder="Binary number 1">
+        <input type="text" id="binary2" placeholder="Binary number 2">
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+        </select>
+        <button onclick="binaryCalc()">Compute</button>
+        <p>Result: <span id="binary-result"></span></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
